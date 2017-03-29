@@ -1,0 +1,40 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="TestDemo.Main" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            <div>
+                <asp:ScriptManager ID="ScriptManager1" runat="server" />
+                <asp:Timer ID="Timer1" OnTick="Timer1_Tick" runat="server" Interval="5000">
+                </asp:Timer>
+                <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                    </Triggers>
+                    <ContentTemplate>
+                        <br />
+                        <br />
+                        <asp:Label ID="lbldisaplyDateTime" runat="server" Font-Names="Arial" Font-Size="Large" 
+                            ForeColor="Blue" 
+                            Text="Current Date and Time loadining.." Width="548px" Height="21px"></asp:Label>
+                        <br />
+                        <br />
+                        <br />
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
